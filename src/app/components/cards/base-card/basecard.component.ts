@@ -6,7 +6,7 @@ import { CheckboxTextComponent } from '../../Checkbox/CheckboxText/CheckboxText.
 import { ButtonComponent } from '../../button/button.component';
 
 @Component({
-  selector: 'storybook-base-card',
+  selector: 'storybook-base-card-alt',
   standalone: true,
   imports: [
     CommonModule,
@@ -18,17 +18,20 @@ import { ButtonComponent } from '../../button/button.component';
   templateUrl: './basecard.component.html',
   styleUrls: ['./basecard.component.scss'],
 })
-export class BaseCardComponent {
-  @Input() showCheckbox = true;
-  @Input() checkboxLabel = 'Sí, puede ser no codificado';
-
-  @Input() dropdownPlaceholder1 = 'Placeholder';
-  @Input() dropdownPlaceholder2 = 'Placeholder';
-  @Input() dropdownPlaceholder3 = 'Placeholder';
-  @Input() dropdownOptions: string[] = [];
-
-  @Input() headerTitle = 'Ver planes disponibles';
-  @Input() headerSubtitle = 'Visualiza los planes comerciales disponibles';
-  @Input() headerContent =
+export class BaseCardAltComponent {
+  // Cabecera del bloque
+  @Input() headerMain = 'Ver planes disponibles';
+  @Input() headerNote = 'Visualiza los planes comerciales disponibles';
+  @Input() headerDetails =
     'Estos son los planes comerciales disponibles en este momento, puedes agregar nuevos o editar los existentes presionando sobre los 3 puntos verticales.';
+
+  // Campos dropdown
+  @Input() dropdown1Label = 'Selecciona Opción 1';
+  @Input() dropdown2Label = 'Selecciona Opción 2';
+  @Input() dropdown3Label = 'Selecciona Opción 3';
+  @Input() dropdownItems: string[] = ['Opción A', 'Opción B', 'Opción C'];
+
+  // Checkbox opcional
+  @Input() enableCheckbox = true;
+  @Input() checkboxText = 'Sí, puede ser no codificado';
 }

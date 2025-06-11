@@ -1,45 +1,48 @@
-<div class="bc-card">
+<div class="alt-card-wrap">
+  <!-- Header -->
   <storybook-header-momentos
-    [title]="headerTitle"
-    [subtitle]="headerSubtitle"
-    [content]="headerContent"
+    [title]="headerMain"
+    [subtitle]="headerNote"
+    [content]="headerDetails"
     [fullWidth]="true"
   ></storybook-header-momentos>
 
-  <p class="bc-card__section-title">
+  <!-- Sección de texto fijo -->
+  <p class="alt-card__title">
     Punto a adicionar a la ruta de labor : Identificador Ruta
   </p>
 
-  <div class="bc-card__dropdowns">
+  <!-- Tres dropdowns apilados -->
+  <div class="alt-card__dropdown-list">
     <app-dropdown-menu
       state="label"
-      [textField]="dropdownPlaceholder1"
-      [options]="dropdownOptions"
+      [textField]="dropdown1Label"
+      [options]="dropdownItems"
     ></app-dropdown-menu>
     <app-dropdown-menu
       state="label"
-      [textField]="dropdownPlaceholder2"
-      [options]="dropdownOptions"
+      [textField]="dropdown2Label"
+      [options]="dropdownItems"
     ></app-dropdown-menu>
     <app-dropdown-menu
       state="label"
-      [textField]="dropdownPlaceholder3"
-      [options]="dropdownOptions"
+      [textField]="dropdown3Label"
+      [options]="dropdownItems"
     ></app-dropdown-menu>
   </div>
 
-  <ng-container *ngIf="showCheckbox">
-    <p class="bc-card__section-title">
+  <!-- Checkbox bajo dropdowns -->
+  <section *ngIf="enableCheckbox" class="alt-card__checkbox-area">
+    <p class="alt-card__title">
       Punto a adicionar a la ruta de labor : Identificador Ruta
     </p>
-    <div class="bc-card__checkbox">
-      <storybook-checkbox-text [label]="checkboxLabel"></storybook-checkbox-text>
-    </div>
-  </ng-container>
+    <storybook-checkbox-text [label]="checkboxText"></storybook-checkbox-text>
+  </section>
 
-  <div class="bc-card__actions">
+  <!-- Botones al pie -->
+  <footer class="alt-card__btn-group">
     <app-button
-      label="button"
+      label="Confirmar"
       color="primary"
       size="medium"
       styles="filled"
@@ -49,8 +52,8 @@
       [showIconEnd]="false"
     ></app-button>
     <app-button
-      *ngIf="showCheckbox"
-      label="button"
+      *ngIf="enableCheckbox"
+      label="Cancelar"
       color="error"
       size="medium"
       styles="text"
@@ -59,5 +62,5 @@
       [showIconStart]="false"
       [showIconEnd]="false"
     ></app-button>
-  </div>
+  </footer>
 </div>
